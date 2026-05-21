@@ -2,6 +2,8 @@ import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, FileText, Mail } from "lucide-react"
 
+const techs = ["React", "TypeScript", "JS", "ES6+", "CSS3", "Tailwind CSS", "Framer Motion"];
+
 export function HeroSection() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
@@ -32,9 +34,9 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6"
         >
-          Front-End <br className="hidden md:block" />
+          Ahmed Youssef Mohamed <br className="hidden md:block" />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">
-            Software Engineer
+            Front-End Developer
           </span>
         </motion.h1>
 
@@ -44,7 +46,7 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10"
         >
-          Hi, I'm Alex Chen. I obsess over every pixel, every animation curve, and every millisecond of load time to build exceptional digital experiences.
+          Hi, I'm Ahmed. Passionate about crafting smooth, detail-driven interfaces and building products that make a real difference in people’s lives.
         </motion.p>
 
         <motion.div
@@ -68,15 +70,18 @@ export function HeroSection() {
             size="lg"
             className="w-full sm:w-auto rounded-full"
             onClick={() => {
-              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              // document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              window.location.href = "mailto:yourEmail@gmail.com";
             }}
           >
             <Mail className="mr-2 w-4 h-4" />
             Contact Me
           </Button>
-          <Button variant="ghost" size="lg" className="w-full sm:w-auto rounded-full">
-            <FileText className="mr-2 w-4 h-4" />
-            Download CV
+          <Button variant="ghost" size="lg" className="w-full sm:w-auto rounded-full" asChild>
+            <a href="/ahmed-youssef-cv.pdf" target="_blank" rel="noopener noreferrer">
+              <FileText className="mr-2 w-4 h-4" />
+              View CV
+            </a>
           </Button>
         </motion.div>
 
@@ -86,7 +91,7 @@ export function HeroSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-20 flex flex-wrap justify-center gap-3 max-w-3xl"
         >
-          {["React", "TypeScript", "Next.js", "Node.js", "Tailwind CSS", "Framer Motion"].map((tech, i) => (
+          {techs.map((tech, i) => (
             <span
               key={tech}
               className="px-4 py-2 rounded-full bg-secondary/50 border border-border text-sm text-muted-foreground hover:text-foreground hover:border-primary/50 transition-colors cursor-default"
