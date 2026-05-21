@@ -50,7 +50,7 @@ export function Navbar() {
           onClick={(e) => scrollTo(e, "#home")}
           className="text-xl md:text-2xl font-bold tracking-tighter text-foreground"
         >
-          Alex<span className="text-primary">Chen</span>
+          Ahmed<span className="text-primary"> Youssef</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-1 bg-secondary/50 backdrop-blur-sm px-2 py-1 rounded-full border border-border">

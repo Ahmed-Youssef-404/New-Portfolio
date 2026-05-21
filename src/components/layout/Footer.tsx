@@ -8,7 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center justify-between gap-6">
         <div className="flex flex-col items-center md:items-start gap-2">
           <a href="#home" className="text-xl font-bold tracking-tighter text-foreground">
-            Alex<span className="text-primary">Chen</span>
+            Ahmed<span className="text-primary"> Youssef</span>
           </a>
           <p className="text-sm text-muted-foreground max-w-sm text-center md:text-left">
             Crafting exceptional digital experiences with modern web technologies.
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
 
         <div className="text-sm text-muted-foreground">
-          &copy; {currentYear} Alex Chen. All rights reserved.
+          &copy; {currentYear} Ahmed Youssef. All rights reserved.
         </div>
       </div>
     </footer>
