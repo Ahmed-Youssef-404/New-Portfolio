@@ -37,13 +37,13 @@ export function AboutSection() {
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground">
               <p>
-                My journey into software engineering started with a simple curiosity about how things work on the web. That curiosity quickly transformed into a deep passion for building interfaces that don't just function, but feel right.
+                I’m a front-end specialist dedicated to bridging the gap between design and engineering. I focus on translating complex requirements into elegant, accessible, and performant user interfaces that don't just function, but feel right.
               </p>
               <p>
-                I believe that the best applications blur the line between design and engineering. As a front-end specialist, I bridge that gap, translating complex requirements into elegant, accessible, and highly performant user interfaces.
+                Constantly exploring the React ecosystem and refining UI/UX patterns to build seamless digital experiences.
               </p>
               <p>
-                When I'm not writing code, you can find me analyzing UI patterns of popular apps, exploring the latest in the React ecosystem, or tweaking my terminal theme for the hundredth time.
+                Driven by continuous growth, I am currently expanding my skills into back-end engineering to transition into a well-rounded full-stack developer.
               </p>
             </div>
             
@@ -73,13 +73,13 @@ export function AboutSection() {
             className="w-full md:w-1/2 grid grid-cols-2 gap-4 md:gap-6"
           >
             <div className="col-span-2 sm:col-span-1">
-              <StatCard label="Years Coding" value={3} />
+              <StatCard label="Years Coding" value={2} />
             </div>
             <div className="col-span-2 sm:col-span-1 mt-0 sm:mt-12">
-              <StatCard label="Projects Built" value={20} />
+              <StatCard label="Projects Built" value={4} />
             </div>
             <div className="col-span-2">
-              <StatCard label="Technologies Mastered" value={15} />
+              <StatCard label="Github Repositories" value={+20} />
             </div>
           </motion.div>
         </div>
