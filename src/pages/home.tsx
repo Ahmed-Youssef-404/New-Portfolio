@@ -17,7 +17,7 @@ export function HomePage() {
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
-        <ExperienceSection />
+        {/* <ExperienceSection /> */}
         <TechStackSection />
         <ContactSection />
       </main>
