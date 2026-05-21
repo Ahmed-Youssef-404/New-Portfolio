@@ -5,10 +5,16 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import NotFound from "@/pages/not-found";
 import { HomePage } from "@/pages/home";
+import { useEffect } from "react";
+
+
+useEffect(() => {
+  fetch("/.netlify/functions/notify", {
+    method: "POST",
+  });
+}, []);
 
 const queryClient = new QueryClient();
-
-fetch("/.netlify/functions/notify", { method: "POST" });
 
 function Router() {
   return (
@@ -25,7 +31,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <TooltipProvider>
           {/* <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}> */}
-            <Router />
+          <Router />
           {/* </WouterRouter> */}
           <Toaster />
         </TooltipProvider>
