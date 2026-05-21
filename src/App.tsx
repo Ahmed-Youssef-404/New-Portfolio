@@ -7,13 +7,6 @@ import NotFound from "@/pages/not-found";
 import { HomePage } from "@/pages/home";
 import { useEffect } from "react";
 
-
-useEffect(() => {
-  fetch("/.netlify/functions/notify", {
-    method: "POST",
-  });
-}, []);
-
 const queryClient = new QueryClient();
 
 function Router() {
@@ -26,6 +19,13 @@ function Router() {
 }
 
 function App() {
+
+  useEffect(() => {
+    fetch("/.netlify/functions/notify", {
+      method: "POST",
+    });
+  }, []);
+
   return (
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
       <QueryClientProvider client={queryClient}>
