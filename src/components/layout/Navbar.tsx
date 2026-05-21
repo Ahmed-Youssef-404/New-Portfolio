@@ -8,7 +8,7 @@ const NAV_ITEMS = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  // { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ]
 
@@ -16,8 +16,7 @@ export function Navbar() {
   const { theme, setTheme } = useTheme()
   const [isScrolled, setIsScrolled] = useState(false)
   const activeSection = useScrollSpy(
-    NAV_ITEMS.map((item) => item.href.substring(1)),
-    -100
+    NAV_ITEMS.map((item) => item.href.substring(1)), 100
   )
 
   useEffect(() => {
