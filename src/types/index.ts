@@ -7,10 +7,11 @@ export interface Project {
   longDescription: string;
   tags: string[];
   category: Category;
-  githubUrl: string;
-  liveUrl: string;
+  githubUrl?: string;
+  liveUrl?: string;
   image: string;
   featured: boolean;
+  private?: boolean;
 }
 
 export interface Skill {

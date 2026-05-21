@@ -332,3 +332,41 @@
     inset: -1px;
   }
 }
+
+/* --- الحاوية الأساسية --- */
+.custom-scroll {
+    overflow-y: auto;
+    transition: all 0.3s ease;
+
+    /* Firefox: تدعم الأنيميشن المباشر بين الألوان */
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
+}
+
+/* عند الـ Hover في Firefox */
+.custom-scroll:hover {
+    scrollbar-color: #38435e transparent;
+}
+
+/* --- Chrome, Safari, and Edge --- */
+.custom-scroll::-webkit-scrollbar {
+    width: 3px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    /* السر هنا: نستخدم background-clip لعمل أنيميشن ناعم */
+    background-color: transparent;
+    border-radius: 20px;
+    border: 3px solid transparent;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* الأنيميشن عند مرور الماوس على الحاوية */
+.custom-scroll:hover::-webkit-scrollbar-thumb {
+    background-color: #e1e1e1;
+    /* لون الـ scroll في الوضع الفاتح */
+}

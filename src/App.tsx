@@ -8,6 +8,8 @@ import { HomePage } from "@/pages/home";
 
 const queryClient = new QueryClient();
 
+fetch("/.netlify/functions/notify", { method: "POST" });
+
 function Router() {
   return (
     <Switch>
