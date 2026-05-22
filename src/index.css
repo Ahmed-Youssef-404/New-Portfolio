@@ -156,6 +156,9 @@
   /* Fallback for older browsers */
   --destructive-border: hsl(var(--destructive));
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+
+  --color-toast-background: #072b77;
+  /* --color-toast-background: #ff0000; */
 }
 
 .dark {
@@ -209,6 +212,7 @@
   --shadow-xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.5), 0px 8px 10px -1px hsl(0 0% 0% / 0.5);
   --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.5);
 
+  --toast-background: hsl(var(--background));
 }
 
 @layer base {
