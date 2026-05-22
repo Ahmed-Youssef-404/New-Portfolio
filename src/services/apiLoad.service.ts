@@ -1,8 +1,8 @@
 export const sendMessage = async (formData: any) => {
-    return fetch('https://script.google.com/macros/s/AKfycbxsyzY2oQHfrH0S2-chaFXcrOBRmmoo8MG_DjapWHsz9lXrtybASky6-muv2tNpl7U/exec', {
-        method: 'POST',
+    return fetch("/api/send-message", {
+        method: "POST",
         headers: {
-            'Content-Type': 'text/plain;charset=utf-8', // جوجل يفضل هذا النوع أحياناً لتجنب Preflight
+            "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
     }).catch(err => {
