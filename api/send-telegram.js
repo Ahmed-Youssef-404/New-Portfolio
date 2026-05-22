@@ -19,10 +19,10 @@ export default async function handler(req, res) {
         });
 
         const message = `
-        🚀 Someone just visited your NEW portfolio!    
-        🕒 Time:
-        ${time}
-    `;
+🚀 Someone just visited your NEW portfolio!    
+🕒 Time:
+${time}
+        `;
 
         const telegramURL = `https://api.telegram.org/bot${token}/sendMessage`;
 
