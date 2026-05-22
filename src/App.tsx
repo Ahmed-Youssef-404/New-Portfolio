@@ -21,9 +21,10 @@ function Router() {
 function App() {
 
   useEffect(() => {
-    fetch("/.netlify/functions/notify", {
-      method: "POST",
-    });
+    fetch("/api/send-telegram")
+      .then((res) => res.json())
+      // .then((data) => console.log(data))
+      // .catch((err) => console.error(err));
   }, []);
 
   return (
