@@ -27,6 +27,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Docker', icon: 'SiDocker' },
       { name: 'Vercel', icon: 'SiVercel' },
       { name: 'Netlify', icon: 'SiNetlify' },
+      { name: 'Apps Script', icon: 'SiGoogleappsscript' },
     ]
   },
   {
