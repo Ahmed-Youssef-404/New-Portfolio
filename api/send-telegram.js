@@ -3,7 +3,6 @@ export default async function handler(req, res) {
         const token = process.env.TELEGRAM_BOT_TOKEN;
         const chatId = process.env.TELEGRAM_CHAT_ID;
 
-        // الوقت بتوقيت مصر
         const now = new Date();
 
         const time = now.toLocaleString("en-US", {
@@ -19,14 +18,14 @@ export default async function handler(req, res) {
         });
 
         const message = `
-🚀 Someone just visited your NEW portfolio!    
+🚀 Someone just visited your NEW portfolio!
 🕒 Time:
 ${time}
         `;
 
         const telegramURL = `https://api.telegram.org/bot${token}/sendMessage`;
 
-        const response = await fetch(telegramURL, {
+        await fetch(telegramURL, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -37,16 +36,14 @@ ${time}
             }),
         });
 
-        const data = await response.json();
-
         return res.status(200).json({
             success: true,
-            telegram: data,
         });
+
     } catch (error) {
         return res.status(500).json({
             success: false,
-            error: error.message,
+            error: "Something went wrong",
         });
     }
 }
