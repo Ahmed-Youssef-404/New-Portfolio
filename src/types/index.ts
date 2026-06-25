@@ -9,7 +9,7 @@ export interface Project {
   category: Category;
   githubUrl?: string;
   liveUrl?: string;
-  image: string;
+  image: string[]; // now an array of image URLs
   featured: boolean;
   private?: boolean;
 }

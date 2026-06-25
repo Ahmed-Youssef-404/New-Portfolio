@@ -7,6 +7,8 @@ import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Github, ExternalLink, Briefcase, Lock } from "lucide-react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { ProjectImageCarousel } from "../ui/ProjectImageCarousel"
+// import { ProjectImageCarousel } from "@/components/projects/ProjectImageCarousel"
 
 const CATEGORIES: Category[] = ['All', 'React', 'Fullstack', 'Tools']
 
@@ -62,27 +64,24 @@ export function ProjectsSection() {
                 <Card className="w-full flex flex-col overflow-hidden group hover-elevate border-border bg-card transition-all duration-300 hover:shadow-lg">
                   
                   {/* Image Container */}
-                  <div 
-                    className="relative aspect-video overflow-hidden bg-muted cursor-pointer" 
-                    onClick={() => openProjectModal(project.id)}
-                  >
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
-                      loading="lazy"
+                  <div className="relative aspect-video overflow-hidden bg-muted">
+                    <ProjectImageCarousel
+                      images={project.image}
+                      alt={project.title}
+                      onImageClick={() => openProjectModal(project.id)}
+                      showArrowsOnHoverOnly
                     />
-                    
+
                     {/* Private Tag Overlay on top-left of image */}
                     {project.private && (
-                      <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-background/10 backdrop-blur-md text-destructive border border-destructive/20 px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm">
+                      <div className="absolute top-3 left-3 z-30 flex items-center gap-1.5 bg-background/10 backdrop-blur-md text-destructive border border-destructive/20 px-2.5 py-1 rounded-full text-xs font-semibold shadow-sm pointer-events-none">
                         <Lock className="w-3 h-3" />
                         Private
                       </div>
                     )}
 
-                    {/* Desktop Hover Overlay */}
-                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex items-center justify-center">
+                    {/* Desktop Hover Overlay — pointer-events-none so it doesn't block the carousel arrows/clicks underneath */}
+                    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex items-center justify-center pointer-events-none z-10">
                       <span className="text-white text-sm font-medium px-4 py-2 border border-white/30 rounded-full bg-black/40 backdrop-blur-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
                         View Details
                       </span>
@@ -157,7 +156,10 @@ export function ProjectsSection() {
               {/* Scrollable Area inside Dialog */}
               <div className="overflow-y-auto flex-1 custom-scrollbar">
                 <div className="w-full aspect-video bg-muted relative">
-                  <img src={activeProject.image} alt={activeProject.title} className="w-full h-full object-cover" />
+                  <ProjectImageCarousel
+                    images={activeProject.image}
+                    alt={activeProject.title}
+                  />
                 </div>
                 
                 <div className="p-5 sm:p-8">
