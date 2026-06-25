@@ -10,7 +10,8 @@ export function TechStackSection() {
         <div className="mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 flex items-center justify-center gap-3">
             <Cpu className="text-primary w-8 h-8" />
-            Tech Stack Visualized
+            {/* Tech Stack Visualized */}
+            Tech Stack
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
             The technologies I use daily to build modern web applications.
