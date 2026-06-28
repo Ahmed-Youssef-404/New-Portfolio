@@ -115,8 +115,8 @@ export function ProjectImageCarousel({
                 className={cn(
                   "h-1.5 rounded-full shadow-sm transition-all",
                   index === selectedIndex
-                    ? "w-4 bg-white"
-                    : "w-1.5 bg-white/50 hover:bg-white/80"
+                    ? "w-4 bg-slate-700/80 ring-1 ring-white/20"
+                    : "w-1.5 bg-slate-700/40 hover:bg-slate-700/70"
                 )}
                 aria-label={`Go to image ${index + 1} of ${images.length}`}
               />
