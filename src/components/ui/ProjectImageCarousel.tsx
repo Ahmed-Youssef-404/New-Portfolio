@@ -85,7 +85,7 @@ export function ProjectImageCarousel({
 
       {hasMultipleImages && (
         <>
-          <CarouselPrevious
+          {/* <CarouselPrevious
             className={cn(
               "left-2 top-1/2 z-20 h-7 w-7 -translate-y-1/2 bg-background/80 transition-opacity hover:bg-background",
               arrowVisibility
@@ -98,7 +98,7 @@ export function ProjectImageCarousel({
               arrowVisibility
             )}
             onClick={(e) => e.stopPropagation()}
-          />
+          /> */}
 
           {/* Dot indicators — always visible (not hover-gated) so the user knows
               there are multiple images without having to hover first. Doubles as
