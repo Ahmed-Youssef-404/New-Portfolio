@@ -159,6 +159,8 @@
 
   --color-toast-background: #072b77;
   /* --color-toast-background: #ff0000; */
+
+  --color-scrollbar-thumb: #7f8ba5 ;
 }
 
 .dark {
@@ -213,6 +215,8 @@
   --shadow-2xl: 0px 2px 0px 0px hsl(0 0% 0% / 0.5);
 
   --toast-background: hsl(var(--background));
+
+  --color-scrollbar-thumb: #38435e ;
 }
 
 @layer base {
@@ -349,7 +353,7 @@
 
 /* عند الـ Hover في Firefox */
 .custom-scroll:hover {
-    scrollbar-color: #38435e transparent;
+    scrollbar-color: var(--color-scrollbar-thumb) transparent;
 }
 
 /* --- Chrome, Safari, and Edge --- */
