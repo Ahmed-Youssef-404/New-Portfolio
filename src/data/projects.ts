@@ -75,7 +75,14 @@ export const projects: Project[] = [
     category: 'React',
     // githubUrl: 'https://github.com',
     liveUrl: 'https://nst-custom-form.vercel.app/',
-    image: ["/images/project-form-builder.png"],
+    image: [
+      "/images/NST/NST_Form1 (0).png",
+      "/images/NST/NST_Form1 (1).png",
+      "/images/NST/NST_Form1 (2).png",
+      "/images/NST/NST_Form1 (3).png",
+      "/images/NST/NST_Form1 (4).png",
+      "/images/NST/NST_Form1 (5).png"
+    ],
     featured: true,
     private: false,
   },
