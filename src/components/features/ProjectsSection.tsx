@@ -22,7 +22,7 @@ export function ProjectsSection() {
   return (
     <section id="projects" className="py-16 md:py-24 bg-secondary/30 min-h-screen">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        
+
         {/* Header Section */}
         <div className="mb-10 md:mb-16 text-center sm:text-left">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4 flex items-center justify-center sm:justify-start gap-3 tracking-tight">
@@ -62,7 +62,7 @@ export function ProjectsSection() {
                 className="flex"
               >
                 <Card className="w-full flex flex-col overflow-hidden group hover-elevate border-border bg-card transition-all duration-300 hover:shadow-lg">
-                  
+
                   {/* Image Container */}
                   <div className="relative aspect-video overflow-hidden bg-muted">
                     <ProjectImageCarousel
@@ -91,8 +91,8 @@ export function ProjectsSection() {
                   {/* Card Content */}
                   <CardContent className="flex-1 p-5 sm:p-6 flex flex-col">
                     <div className="flex justify-between items-start gap-2 mb-3">
-                      <h3 
-                        className="text-xl font-bold line-clamp-1 group-hover:text-primary transition-colors cursor-pointer" 
+                      <h3
+                        className="text-xl font-bold line-clamp-1 group-hover:text-primary transition-colors cursor-pointer"
                         onClick={() => openProjectModal(project.id)}
                       >
                         {project.title}
@@ -101,11 +101,11 @@ export function ProjectsSection() {
                         {project.category}
                       </Badge>
                     </div>
-                    
+
                     <p className="text-muted-foreground text-sm line-clamp-3 mb-4 flex-1">
                       {project.description}
                     </p>
-                    
+
                     {/* Tags */}
                     <div className="flex flex-wrap gap-1.5 mt-auto">
                       {project.tags.slice(0, 3).map(tag => (
@@ -122,6 +122,7 @@ export function ProjectsSection() {
                   </CardContent>
 
                   {/* Card Footer */}
+                  {/* Card Footer */}
                   <CardFooter className="p-5 sm:p-6 pt-0 flex justify-between items-center gap-4 border-t border-border/10 mt-2">
                     {project.private ? (
                       // شكل جميل ومميز يعرض بدلاً من الأزرار إذا كان المشروع خاصاً
@@ -129,15 +130,33 @@ export function ProjectsSection() {
                         <Lock className="w-3.5 h-3.5 text-muted-foreground/70" />
                         <span>Code & Demo are private</span>
                       </div>
+                    ) : !project.githubUrl && !project.liveUrl ? (
+                      // مش خاص، لكن مفيش لينكات خالص — نوريه ده بصريًا
+                      <div className="w-full flex items-center justify-center gap-2 py-2 text-xs font-medium text-muted-foreground bg-secondary/40 rounded-lg border border-dashed border-border/60">
+                        <span>No links available yet</span>
+                      </div>
                     ) : (
-                      // الأزرار العادية للمشاريع العامة
+                      // الأزرار العادية — كل واحد يتأكد من وجوده لوحده
                       <>
-                        <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1">
-                          <Github className="mr-2 w-4 h-4" /> Code
-                        </a>
-                        <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors py-1">
-                          <ExternalLink className="mr-2 w-4 h-4" /> Live Demo
-                        </a>
+                        {project.githubUrl ? (
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors py-1">
+                            <Github className="mr-2 w-4 h-4" /> Code
+                          </a>
+                        ) : (
+                          <span className="flex items-center text-sm font-medium text-muted-foreground/40 cursor-not-allowed py-1">
+                            <Github className="mr-2 w-4 h-4" /> Code is Private
+                          </span>
+                        )}
+
+                        {project.liveUrl ? (
+                          <a href={project.liveUrl} target="_blank" rel="noreferrer" className="flex items-center text-sm font-medium text-primary hover:text-primary/80 transition-colors py-1">
+                            <ExternalLink className="mr-2 w-4 h-4" /> Live Demo
+                          </a>
+                        ) : (
+                          <span className="flex items-center text-sm font-medium text-muted-foreground/40 cursor-not-allowed py-1">
+                            <ExternalLink className="mr-2 w-4 h-4" /> Demo is not Available
+                          </span>
+                        )}
                       </>
                     )}
                   </CardFooter>
@@ -161,7 +180,7 @@ export function ProjectsSection() {
                     alt={activeProject.title}
                   />
                 </div>
-                
+
                 <div className="p-5 sm:p-8">
                   <DialogHeader className="mb-4 text-left">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
@@ -178,11 +197,11 @@ export function ProjectsSection() {
                       </Badge>
                     </div>
                   </DialogHeader>
-                  
+
                   <DialogDescription className="text-sm sm:text-base text-muted-foreground mb-6 leading-relaxed">
                     {activeProject.longDescription}
                   </DialogDescription>
-                  
+
                   {/* Private Notice inside description if private */}
                   {activeProject.private && (
                     <div className="mb-6 p-4 rounded-xl bg-destructive/5 border border-destructive/10 flex items-start gap-3">
@@ -195,7 +214,7 @@ export function ProjectsSection() {
                       </div>
                     </div>
                   )}
-                  
+
                   <div className="mb-4">
                     <h4 className="text-xs font-semibold uppercase tracking-wider text-foreground/80 mb-3">
                       Technologies Used
@@ -215,16 +234,37 @@ export function ProjectsSection() {
               {/* تظهر فقط إذا لم يكن المشروع خاصاً */}
               {!activeProject.private && (
                 <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 p-4 sm:p-6 bg-background border-t border-border mt-auto">
-                  <Button asChild className="rounded-full w-full sm:w-auto px-6">
-                    <a href={activeProject.liveUrl} target="_blank" rel="noreferrer" className="justify-center">
-                      <ExternalLink className="mr-2 w-4 h-4" /> View Live Site
-                    </a>
-                  </Button>
-                  <Button asChild variant="outline" className="rounded-full w-full sm:w-auto px-6">
-                    <a href={activeProject.githubUrl} target="_blank" rel="noreferrer" className="justify-center">
-                      <Github className="mr-2 w-4 h-4" /> View Source
-                    </a>
-                  </Button>
+                  {!activeProject.liveUrl && !activeProject.githubUrl ? (
+                    <div className="w-full flex items-center justify-center py-2 text-sm font-medium text-muted-foreground">
+                      No links available for this project yet
+                    </div>
+                  ) : (
+                    <>
+                      {activeProject.liveUrl ? (
+                        <Button asChild className="rounded-full w-full sm:w-auto px-6">
+                          <a href={activeProject.liveUrl} target="_blank" rel="noreferrer" className="justify-center">
+                            <ExternalLink className="mr-2 w-4 h-4" /> View Live Site
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button disabled className="rounded-full w-full sm:w-auto px-6">
+                          <ExternalLink className="mr-2 w-4 h-4" /> Live Demo is not Available
+                        </Button>
+                      )}
+
+                      {activeProject.githubUrl ? (
+                        <Button asChild variant="outline" className="rounded-full w-full sm:w-auto px-6">
+                          <a href={activeProject.githubUrl} target="_blank" rel="noreferrer" className="justify-center">
+                            <Github className="mr-2 w-4 h-4" /> View Source
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button disabled variant="outline" className="rounded-full w-full sm:w-auto px-6">
+                          <Github className="mr-2 w-4 h-4" /> Source Code is Private
+                        </Button>
+                      )}
+                    </>
+                  )}
                 </div>
               )}
             </>
